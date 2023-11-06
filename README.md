@@ -1,6 +1,6 @@
 # Introduction-to-Image-Understanding-2
 
-This repository contains the solution for Homework 1 of CENG 391 - Introduction to Image Understanding, completed on July 12, 2023.
+This repository contains the solution for Homework 1 of CENG 391 - Introduction to Image Understanding.
 
 # Assignment Description
 The assignment consists of three main exercises. The purpose of each exercise is to extend the functionality of the ceng391::Image class. Here's a brief overview of what each exercise requires:
