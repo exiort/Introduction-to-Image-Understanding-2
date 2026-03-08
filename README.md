@@ -1,23 +1,38 @@
 # Introduction-to-Image-Understanding-2
+This repository contains the solution for Homework 2 of CENG 391 - Introduction to Image Understanding.
 
-This repository contains the solution for Homework 1 of CENG 391 - Introduction to Image Understanding.
+## Assignment Description
+This project extends the `ceng391::Image` library built in the previous assignment by introducing spatial filtering, image derivatives, geometric transformations, and PNG file support.
 
-# Assignment Description
-The assignment consists of three main exercises. The purpose of each exercise is to extend the functionality of the ceng391::Image class. Here's a brief overview of what each exercise requires:
+## Key Features Implemented
 
-# Exercise 1 - Color Support for the ceng391::Image Class
-Added support for specifying the number of color channels per pixel (1 for grayscale, 3 for RGB, or 4 for RGBA) in the constructor.
-Implemented RGB and RGBA versions for the set and set_rect functions to work with multi-channel data.
-Modified the write_pnm function to save RGB data in the binary PPM format.
-# Exercise 2 - Loading PNM Images
-Added a new member function Image::read_pnm to read image contents from PGM or PPM binary formats.
-When reading color images, it creates a four-channel RGBA image with alpha values initialized to 255.
-# Exercise 3 - Color Conversion
-Implemented three new member functions: Image::to_rgb, Image::to_grayscale, and Image::to_rgba.
-These functions convert the image contents from the current number of channels to the desired format.
-Includes formulas for converting between RGB/RGBA and grayscale, taking care of underflow and overflow.
-# How to Use the Code
-* Clone this repository to your local machine.
-* Open the project in your preferred development environment.
-* Compile and build the project.
-* Use the provided functions in the ceng391::Image class to manipulate and convert images.
+### 1. Image Filtering (Smoothing & Box Filters)
+* **Gaussian Smoothing:** Implemented 1D spatial Gaussian smoothing functions (`smooth_x`, `smooth_y`) and a combined 2D smoothing function (`smooth`) using dynamically generated Gaussian kernels.
+* **Box Filtering:** Implemented separable box filters (`box_filter_x`, `box_filter_y`, and `box_filter`) for efficient image blurring.
+
+### 2. Image Derivatives
+* Implemented functions to compute the spatial derivatives of the image in the X and Y directions (`deriv_x`, `deriv_y`) using standard 1D derivative kernels (e.g., `[-1, 0, 1]` and `[1, 2, 1]`). 
+
+### 3. Image Rotation & Interpolation
+* Implemented an image `rotate` function that allows rotating the image by a specified angle (`theta`).
+* **Interpolation Methods:** Supports both **Nearest Neighbor** and **Bilinear** interpolation to handle sub-pixel mappings during rotation.
+* **Center Rotation:** Includes a flag to rotate the image around its center rather than the origin.
+
+### 4. PNG Support integration
+* Transitioned from basic PNM format to **PNG format** using `libpng`.
+* Implemented `xload_png` and `xsave_png` for robust reading and writing of grayscale, RGB, and RGBA PNG images.
+
+## Prerequisites
+* **CMake** (v3.10+)
+* **C++17** compatible compiler
+* **libpng** (Required for PNG loading/saving)
+
+## How to Build and Run
+1. Clone this repository to your local machine.
+2. Open your terminal and navigate to the project directory.
+3. Create a build directory, compile, and build the project using CMake:
+   ```bash
+   mkdir build
+   cd build
+   cmake ..
+   make
