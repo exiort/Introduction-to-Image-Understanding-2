@@ -36,3 +36,9 @@ This project extends the `ceng391::Image` library built in the previous assignme
    cd build
    cmake ..
    make
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License. Copyright (c) 2026 Buğrahan İmal. You are free to use, copy, modify, merge, publish, and distribute this software as per the license conditions.
